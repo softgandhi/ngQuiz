@@ -1,0 +1,79 @@
+﻿
+<div class="header">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Create Quiz Application</h2>
+        </div>
+        <div class="col-md-4 header-right">
+            <!-- In actual application, you may wish to load the quiz List using angular service. -->
+            <select id="quizList" ng-model="quizName" ng-change="loadQuiz(quizName)">
+                <option value="data/aspnet.js">Asp.Net</option>
+                <option value="data/csharp.js">C Sharp</option>
+                <option value="data/designPatterns.js">Design Patterns</option>
+            </select>
+        </div>
+    </div>
+    <hr />
+</div>
+<div id="createQuiz" class="create-quiz">
+    <h1 class="center"><input class="tb-quiz-name" type="text" ng-model="quiz.name" title="Enter quiz name here" /></h1>
+    <input class="tb-desc" type="text" ng-model="quiz.description" />
+    <hr />
+    <div ng-show="mode=='quiz'">
+        <div ng-repeat="question in filteredQuestions">
+            <div class="label label-warning">Question {{currentPage}} of {{totalItems}}.</div>
+            <div class="question">
+                <h3>{{currentPage}}. <input type="text" ng-model="question.name" /></h3>
+                <div class="options">
+                    <div ng-repeat="option in question.options">
+                        <input id="{{option.id}}" type="checkbox" ng-model="option.isAnswer" />
+                        <input type="text" ng-model="option.name" />
+                    </div>
+                </div>
+                <span class="label label-success btn" ng-click="question.options.push({});">Add Option</span>
+                <div>                    
+                    Note:
+                    <ul>
+                        <li>Blank option(s) will be ignored.</li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="quizNav">
+            <div>
+                <button class="btn btn-default" ng-click="goTo(1);">First</button>
+                <button class="btn btn-default" ng-click="goTo(currentPage - 1);">Prev</button>
+                <button class="btn btn-default" ng-click="goTo(currentPage + 1);">Next</button>
+                <button class="btn btn-default" ng-click="goTo(totalItems);">Last</button>
+            </div>
+            <br />
+            <pagination direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+        </div>
+    </div>
+    <div class="review" ng-show="mode=='review'">
+        <h2>Quiz Review</h2>
+        <div ng-repeat="question in questions">
+            <div class="result-question">
+                <h3>{{$index + 1}}. {{question.Name}}</h3>
+                <div class="result-options">
+                    <div ng-repeat="option in question.options">
+                        <label ng-click="onSelect(option);" class="{{ (option.selected == option.isAnswer)? 'result-correct': 'result-incorrect' }}">
+                            <input id="{{option.id}}" type="checkbox" disabled="disabled" readonly="readonly" ng-model="option.selected" />
+                            {{option.name}}
+                        </label>
+                    </div>
+                </div>
+                <h4 class="alert {{ isCorrect(question) == 'correct'? 'alert-success': 'alert-danger'}}">Your answer is {{isCorrect(question)}}.</h4>
+            </div>
+        </div>
+        <h4 class="alert alert-info text-center">You may close this window now.</h4>
+    </div>
+    <hr />
+    <div class="" ng-show="mode!='result'">
+        <button class="btn btn-default" ng-click="mode = 'quiz'">Quiz</button> 
+        <button class="btn btn-default" ng-click="mode = 'review'">Review</button> 
+        <button class="btn btn-default" ng-click="onSave();">Save Quiz</button>
+    </div>
+</div>

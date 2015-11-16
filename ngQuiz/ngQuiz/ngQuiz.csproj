@@ -75,11 +75,26 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\style.css" />
+    <Content Include="data\aspnet-answer.js" />
+    <Content Include="data\aspnet.js" />
+    <Content Include="data\csharp.js" />
+    <Content Include="data\designPatterns.js" />
+    <Content Include="index.html" />
+    <Content Include="app\app.js" />
+    <Content Include="app\createCtrl.js" />
+    <Content Include="app\emptyQuiz.js" />
+    <Content Include="app\helperService.js" />
+    <Content Include="app\quizCtrl.js" />
+    <Content Include="templates\create.html" />
+    <Content Include="templates\quiz.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

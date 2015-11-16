@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="quizApp" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Quiz Application</title>
+    <!-- You may wish to bundle and minify in your project. It is not bundled and minified here to keep things simple here. -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-sanitize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/helperService.js"></script>
+    <script src="app/quizCtrl.js"></script>
+    <script src="app/createCtrl.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div ng-view></div>
+    </div>
+</body>
+</html>

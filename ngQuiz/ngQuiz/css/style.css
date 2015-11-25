@@ -1,8 +1,6 @@
 ﻿body {
     font-family: 'Segoe UI', sans-serif;
     margin:auto;
-    max-width:95%;
-    width:1000px;
 }
 
 *{
@@ -11,11 +9,9 @@
 
 h1{
     color:#740808;
-    font-size:26px;
     font-weight:normal;
 }
 h2{
-    font-size:20px;
     font-weight:normal;
 }
 
@@ -41,38 +37,17 @@ hr{
     background-color:#eee;
     color:#151569;
     min-height:300px;
-    padding:6px;
     text-align:center;
 }
-.question h2{
-    font-size:24px;
+.option{
+    background-color:#cadaee;
+    font-size:20px;
+    padding:10px;
+    margin:3px;
+}
+.option label{
     font-weight:normal;
 }
-
-#quiz .options {
-    margin: auto;
-    max-width: 800px;
-    text-align: left;
-}
-#quiz .options > div{
-    display:inline-block;
-}
-    #quiz .options > div > label {
-        background-color: #d0def6;
-        color: #224;
-        cursor: pointer;
-        display: block;
-        font-family: 'Segoe UI', Calibri, Arial;
-        font-weight:600;
-        margin: 5px;
-        text-align: left;
-        font-size: 18px;
-        margin: 10px;
-        min-width: 350px;
-        padding: 10px 15px;
-        vertical-align: middle;
-    }
-
     #quiz .options input[type=checkbox] {
         background-color:#eee;
         border:1px solid #ccc;
@@ -99,25 +74,20 @@ div.review{
 }
 div.review > div {
     cursor:pointer;
-    display:inline-block;
-    margin:2px;
-    width: 25%;
 }
 
 .answered {
     background-color:#ccffcc;
     border:1px solid #aaeeaa;
+    margin:2px 0;
     padding:12px;
 }
 
 .not-answered {
     background-color:#ffcccc;
     border:1px solid #eeaaaa;
+    margin:2px 0;
     padding:12px;
-}
-
-.result{
-
 }
 
 .result-question{
@@ -125,48 +95,6 @@ div.review > div {
     margin:4px;
     padding:6px;
 }
-.result-question h3 {
-    font-size:18px;
-    font-weight:normal;
-}
-#quiz .result-options {
-    margin: auto;
-    max-width: 800px;
-    text-align: left;
-}
-#quiz .result-options > div{
-    display:inline-block;
-}
-    #quiz .result-options > div > label {
-        background-color: #ccd2dc;
-        color: #224;
-        cursor: pointer;
-        display: block;
-        font-family: 'Segoe UI', Calibri, Arial;
-        font-weight:normal;
-        margin: 5px;
-        text-align: left;
-        font-size: 16px;
-        margin: 6px;
-        min-width: 300px;
-        padding: 6px 12px;
-        vertical-align: middle;
-    }
-
-    #quiz .result-options input[type=checkbox] {
-        background-color:#eee;
-        border:1px solid #ccc;
-        height:16px;
-        width:16px;
-    }
-
-    .result-correct{
-        background-color: #62f462;
-    }
-    
-    .result-incorrect{
-        /*background-color: #f79b60;*/
-    }
 
     
 /* Create Quiz Styles */
@@ -198,4 +126,21 @@ div.review > div {
     padding:0;
     width:20px;
     -webkit-appearance:checkbox;    
+}
+
+
+@media only screen and (max-width: 480px) {
+    h1,.h1{
+        font-size:22px;
+    }
+    h2,.h2{
+        font-size:20px;
+    }
+    h3,.h3{
+        font-size:18px;
+    }
+    .option {
+        font-size: 16px;
+        padding: 6px;
+    }
 }

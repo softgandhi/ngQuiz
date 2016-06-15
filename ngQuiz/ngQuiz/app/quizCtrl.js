@@ -67,6 +67,8 @@
              $scope.itemsPerPage = $scope.config.pageSize;
              $scope.currentPage = 1;
              $scope.mode = 'quiz';
+             if($scope.config.shuffleOptions)
+                $scope.shuffleOptions();
 
              $scope.$watch('currentPage + itemsPerPage', function () {
                  var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
@@ -76,6 +78,13 @@
              });
          });
     }
+    
+    $scope.shuffleOptions = function(){
+        $scope.questions.forEach(function (question) {
+           question.Options = helper.shuffle(question.Options);
+        });
+    }
+    
     $scope.loadQuiz($scope.quizName);
 
     $scope.isAnswered = function (index) {
